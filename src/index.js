@@ -6,6 +6,7 @@ import App from "./App";
 import { Provider } from "react-redux";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import ReduxThunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import logger from "./middlewares/myLogger";
 import reportWebVitals from "./reportWebVitals";
@@ -13,7 +14,7 @@ import rootReducer from "./modules";
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger))
+  composeWithDevTools(applyMiddleware(ReduxThunk, logger))
 );
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
